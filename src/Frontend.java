@@ -5,19 +5,16 @@
 // Role: Frontend Developer
 // TA: Sid
 // Lecturer: Gary Dahl
-// Notes to Grader: n/a
+// Notes to Grader: This uses the DummyBackend class due to our backend developer not completing his part.
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Frontend {
-    private static Backend b;
+    private static DummyBackend b;
 
     private static String appHeader =
         "=============================================\n" +
@@ -33,11 +30,9 @@ public class Frontend {
         // init input
         Scanner scnr = new Scanner(System.in);
         boolean done = false;
-        BufferedReader br;
 
         try {
-            br = new BufferedReader(new FileReader("temp.csv"));
-            b = new Backend(br);
+            b = new DummyBackend(new FileReader("src\\NodeDataP3.csv"));
             String input = "";
 
             // main app loop
@@ -93,7 +88,7 @@ public class Frontend {
      */
     public static void printInputMenu() {
         System.out.println(appHeader);
-        System.out.println("Enter start and end destinations using the format: <start-city> <end-city>");
+        System.out.println("Enter start and end destinations using the\nformat: <start-city> <end-city>");
         System.out.println();
         System.out.println("Enter ‘x’ to return to main menu");
         System.out.println("=============================================");
@@ -121,8 +116,8 @@ public class Frontend {
         }
 
         // get locations and costs
-        ArrayList<LocationListInterface> locations = b.getPath(userStart, userEnd);
-        ArrayList<Integer> individualCosts = b.getIndividualCost(userStart, userEnd);
+        List<String> locations = b.getPath(userStart, userEnd);
+        List<Double> individualCosts = b.getIndividualCost(userStart, userEnd);
 
         System.out.println("=================================================================================="); // table width: 83
         System.out.println("|                              Cheapest Train Data                               |");
