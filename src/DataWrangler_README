@@ -1,0 +1,23 @@
+DataWrangler README for Project Three (CS400 @ UW Madison)
+========================================================
+
+Name of DataWrangler: Aidan Lonergan
+@wisc.edu Email of DataWrangler: alonergan@wisc.edu
+Group: IG
+Team: Red
+
+Files Written by Me:
+--------------------
+- LocationList.java               LocationList class that handles data reading, processing, and acessing
+- LocationListInterface.java      Interface for the LocationList
+- LocationListTest.java           Class containing the junit5 tests for LocationList methods
+- NodeDataP3.java                 Sample of nodes and edges for testing
+
+Additional Contributions:
+-------------------------
+ - Small bug fixes
+ - Formulating data management plan before implementation
+
+Signature:
+----------
+Aidan Lonergan
