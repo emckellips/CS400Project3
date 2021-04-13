@@ -2,7 +2,7 @@
 // Name: Aidan Lonergan
 // Email: alonergan@wisc.edu
 // Team: IG Red
-// Role: Backend
+// Role: Data Wrangler
 // TA: Sid
 // Lecturer: Gary Dahl
 // Notes to Grader: n/a
