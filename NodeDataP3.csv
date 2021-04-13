@@ -1,0 +1,10 @@
+Madison,Salt Lake City,20,Kansas City,10,St. Louis,5,Chicago,4,Milwaukee,1
+Salt Lake City,Madison,20,Kansas City,16,,,,,,
+Milwaukee,Madison,1,Chicago,2,,,,,,
+Kansas City,Salt Lake City,16,Madison,10,St. Louis,4,,,,
+St. Louis,Madison,5,Kansas City,4,Dallas,9,Memphis,5,,
+Chicago,Milwaukee,2,Madison,4,Memphis,8,Nashville,7,,
+Dallas,Kansas City,8,St. Louis,9,Memphis,5,,,,
+Memphis,Dallas,5,St. Louis,5,Chicago,8,Nashville,3,Atlanta,6
+Nashville,Chicago,7,Memphis,3,Atlanta,3,,,,
+Atlanta,Memphis,6,Nashville,3,,,,,,
