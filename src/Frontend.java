@@ -37,7 +37,7 @@ public class Frontend {
 
             // main app loop
             while (!done) {
-                if (input.isBlank() || input.contentEquals("x")) {
+                if (input.isBlank()) {
                     printMainMenu();
                 }
                 
@@ -46,7 +46,14 @@ public class Frontend {
                 switch (input) {
                     case "r": // enter the input mode
                         printInputMenu();
-                        // TODO: input menu loop
+                        if (scnr.hasNext("x")) {
+                            scnr.next();
+                            printMainMenu();
+                        } else {
+                            String userStart = scnr.next();
+                            String userEnd = scnr.next();
+                            printDataMenu(userStart, userEnd);
+                        }
                         break;
                     
                     case "q": // quit the app
@@ -100,11 +107,11 @@ public class Frontend {
      * @param userStart will contain the user input for start destination
      * @param userEnd will contain the user input for end destination
      */
-    public static void printDataMenu(String userStart, String userEnd) {
+    public static void printDataMenu(String start, String end) {
         final int TOTAL_COST_WIDTH = 27;
 
-        String totalCost = String.valueOf(b.getTotalCosts(userStart, userEnd));
-        totalCost = "$" + totalCost;
+        String totalCost = String.valueOf(b.getTotalCosts(start, end));
+        totalCost = "$ " + totalCost;
 
         // add proper spacing for total cost
         int spacing = (TOTAL_COST_WIDTH - totalCost.length()) / 2;
@@ -116,8 +123,8 @@ public class Frontend {
         }
 
         // get locations and costs
-        List<String> locations = b.getPath(userStart, userEnd);
-        List<Double> individualCosts = b.getIndividualCost(userStart, userEnd);
+        List<String> locations = b.getPath(start, end);
+        List<Double> individualCosts = b.getIndividualCost(start, end);
 
         System.out.println("=================================================================================="); // table width: 83
         System.out.println("|                              Cheapest Train Data                               |");
@@ -127,7 +134,7 @@ public class Frontend {
         System.out.println("|                  City                  |  Individual Cost  |  Cumulative Cost  |");
         System.out.println("----------------------------------------------------------------------------------");
         
-        int cumulativeCost = 0;
+        float cumulativeCost = 0.0f;
         final int CITY_WIDTH = 40;
         final int COST_WIDTH = 19; 
         for (int i = 1; i < locations.size(); i++) {
@@ -145,7 +152,7 @@ public class Frontend {
             System.out.print("|");
 
             // add individual cost column
-            String individualCostCol = " $" + individualCosts.get(i - 1);
+            String individualCostCol = " $ " + individualCosts.get(i - 1);
             int individualCostColLength = individualCostCol.length();
             // add spacing for individual cost column
             for (int s = 0; s < COST_WIDTH - individualCostColLength; s++) {
@@ -157,7 +164,7 @@ public class Frontend {
 
             // add cumulative cost column
             cumulativeCost += individualCosts.get(i - 1);
-            String cumulativeCostCol = " $" + cumulativeCost;
+            String cumulativeCostCol = " $ " + cumulativeCost;
             int cumulativeCostColLength = cumulativeCostCol.length();
             // add spacing for cumulative cost column
             for (int s = 0; s < COST_WIDTH - cumulativeCostColLength; s++) {
@@ -169,9 +176,8 @@ public class Frontend {
         }
 
         System.out.println("==================================================================================");
-        System.out.println();
         System.out.println("Enter 'r' to re-enter destinations");
         System.out.println("Enter 'x' to return to main menu");
-        System.out.println("==================================================================================");
+        System.out.println("=================================================================================="); //142.07
     }
 }
