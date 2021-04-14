@@ -81,24 +81,33 @@ public class Frontend {
     /**
      * This method will have the UI for the main menu.
      */
-    public static void printMainMenu() {
+    public static String printMainMenu() {
+        String str = 
+            "Welcome to the cheapest train path app!\n\n" +
+            "Enter ‘r’ to input start and end destinations\n" +
+            "Enter ‘q’ to quit the app\n" + 
+            "=============================================";
+
         System.out.println(appHeader);
-        System.out.println("Welcome to the cheapest train path app!");
-        System.out.println();
-        System.out.println("Enter ‘r’ to input start and end destinations");
-        System.out.println("Enter ‘q’ to quit the app");
-        System.out.println("=============================================");
+        System.out.println(str);
+
+        return str;
     }
 
     /**
      * This method will have the UI for the input menu.
      */
-    public static void printInputMenu() {
+    public static String printInputMenu() {
+        String str = 
+            "Enter start and end destinations using the\n" + 
+            "format: <start-city> <end-city>\n\n" +
+            "Enter ‘x’ to return to main menu\n" + 
+            "=============================================";
+
         System.out.println(appHeader);
-        System.out.println("Enter start and end destinations using the\nformat: <start-city> <end-city>");
-        System.out.println();
-        System.out.println("Enter ‘x’ to return to main menu");
-        System.out.println("=============================================");
+        System.out.println(str);
+
+        return str;
     }
 
     /**
@@ -107,7 +116,7 @@ public class Frontend {
      * @param userStart will contain the user input for start destination
      * @param userEnd will contain the user input for end destination
      */
-    public static void printDataMenu(String start, String end) {
+    public static String printDataMenu(String start, String end) {
         final int TOTAL_COST_WIDTH = 27;
 
         String totalCost = String.valueOf(b.getTotalCosts(start, end));
@@ -175,9 +184,13 @@ public class Frontend {
             System.out.println("|");
         }
 
-        System.out.println("==================================================================================");
-        System.out.println("Enter 'r' to re-enter destinations");
-        System.out.println("Enter 'x' to return to main menu");
-        System.out.println("=================================================================================="); //142.07
+        String str = 
+            "==================================================================================\n" +
+            "Enter 'r' to re-enter destinations\n" + 
+            "Enter 'x' to return to main menu\n" + 
+            "==================================================================================";
+        System.out.println(str);
+
+        return str;
     }
 }
